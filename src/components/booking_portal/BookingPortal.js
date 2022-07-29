@@ -1,8 +1,10 @@
 import './booking_portal.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 function BookingPortal(props) {
-	const [bookingRequest, setBookingRequest] = useState([]);
+	const [bookingRequest, setBookingRequest] = useState();
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -10,12 +12,31 @@ function BookingPortal(props) {
 			client_name: event.currentTarget['name-field'].value,
 			client_email: event.currentTarget['email-field'].value,
 			wedding_date: event.currentTarget['wedding-date'].value,
-			number_guests: event.currentTarget['guest-count'].value,
-			budget: event.currentTarget['budget'].value,
+			number_guests: parseInt(event.currentTarget['guest-count'].value),
+			budget: parseInt(event.currentTarget['budget'].value),
 			ceremony_location: event.currentTarget['ceremony-site-field'].value,
 			reception_location: event.currentTarget['reception-site-field'].value,
 		});
 	}
+
+	const sendPost = async () => {
+		try {
+			const response = await axios.post(
+				'http://localhost:8000/api/booking_requests',
+				{ ...bookingRequest }
+			);
+            console.log('success!')
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		if (bookingRequest) {
+        sendPost();
+        }
+	}, [bookingRequest]);
+
 	return (
 		<div>
 			<header>Booking Request</header>
