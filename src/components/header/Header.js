@@ -1,11 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 function Header(props) {
     return (
-        <div>
-            
-        </div>
-    );
+			<nav>
+				<ul>
+					<li>
+						<Link to='/booking-request'>Make a Booking Request</Link>
+					</li>
+				</ul>
+			</nav>
+		);
 }
 
 export default Header;
