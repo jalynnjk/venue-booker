@@ -7,6 +7,7 @@ function OwnerPortal(props) {
 	const [bookingRequests, setBookingRequests] = useState([]);
 	const [updatedBookingRequests, setUpdatedBookingRequests] = useState([]);
 	const [targetRequest, setTargetRequest] = useState([]);
+	const [handleRequest, setHandleRequest] = useState();
 
 	async function retrieveBookingRequests() {
 		try {
@@ -23,8 +24,7 @@ function OwnerPortal(props) {
 		retrieveBookingRequests();
 	}, []);
 
-	async function handleAcceptRequest(event) {
-		console.log(targetRequest);
+	async function handleAcceptRequest() {
 		try {
 			const addToAcceptedBookings = await axios.post(
 				'http://localhost:8000/api/booking_requests',
@@ -41,16 +41,30 @@ function OwnerPortal(props) {
 		}
 	}
 
+	async function handleDeclineRequest() {
+		try {
+			const removeFromPendingRequests = await axios.delete(
+				`http://localhost:8000/api/booking_requests/${targetRequest.id}`
+			);
+			const updateRequests = await setUpdatedBookingRequests(
+				removeFromPendingRequests.data
+			);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	useEffect(() => {
-		if (targetRequest) {
+		if (targetRequest && handleRequest) {
 			handleAcceptRequest();
+		} else if (targetRequest && handleRequest == false) {
+			handleDeclineRequest();
 		}
 	}, [targetRequest]);
 
-
-    useEffect(() => {
-        setBookingRequests(updatedBookingRequests)
-    }, [updatedBookingRequests])
+	useEffect(() => {
+		setBookingRequests(updatedBookingRequests);
+	}, [updatedBookingRequests]);
 	return (
 		<main>
 			{bookingRequests ? (
@@ -67,10 +81,17 @@ function OwnerPortal(props) {
 							<Button
 								onClick={() => {
 									setTargetRequest(request);
+									setHandleRequest(true);
 								}}>
 								Accept
 							</Button>
-							<Button>Decline</Button>
+							<Button
+								onClick={() => {
+									setTargetRequest(request);
+									setHandleRequest(false);
+								}}>
+								Decline
+							</Button>
 						</Card>
 					);
 				})
