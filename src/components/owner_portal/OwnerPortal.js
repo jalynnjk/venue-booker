@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 
 function OwnerPortal(props) {
 	const [bookingRequests, setBookingRequests] = useState([]);
+	const [updatedBookingRequests, setUpdatedBookingRequests] = useState([]);
+	const [targetRequest, setTargetRequest] = useState([]);
 
 	async function retrieveBookingRequests() {
 		try {
@@ -12,7 +14,6 @@ function OwnerPortal(props) {
 				'http://localhost:8000/api/booking_requests'
 			);
 			setBookingRequests(response.data);
-			console.log(bookingRequests);
 		} catch (error) {
 			console.log(error);
 		}
@@ -22,6 +23,34 @@ function OwnerPortal(props) {
 		retrieveBookingRequests();
 	}, []);
 
+	async function handleAcceptRequest(event) {
+		console.log(targetRequest);
+		try {
+			const addToAcceptedBookings = await axios.post(
+				'http://localhost:8000/api/booking_requests',
+				targetRequest
+			);
+			const removeFromPendingRequests = await axios.delete(
+				`http://localhost:8000/api/booking_requests/${targetRequest.id}`
+			);
+			const updateRequests = await setUpdatedBookingRequests(
+				removeFromPendingRequests.data
+			);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	useEffect(() => {
+		if (targetRequest) {
+			handleAcceptRequest();
+		}
+	}, [targetRequest]);
+
+
+    useEffect(() => {
+        setBookingRequests(updatedBookingRequests)
+    }, [updatedBookingRequests])
 	return (
 		<main>
 			{bookingRequests ? (
@@ -35,8 +64,13 @@ function OwnerPortal(props) {
 							<Card.Text>{request.budget}</Card.Text>
 							<Card.Text>{request.ceremony_location}</Card.Text>
 							<Card.Text>{request.reception_location}</Card.Text>
-                            <Button>Accept</Button>
-                            <Button>Decline</Button>
+							<Button
+								onClick={() => {
+									setTargetRequest(request);
+								}}>
+								Accept
+							</Button>
+							<Button>Decline</Button>
 						</Card>
 					);
 				})
