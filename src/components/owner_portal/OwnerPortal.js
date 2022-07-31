@@ -27,7 +27,7 @@ function OwnerPortal(props) {
 	async function handleAcceptRequest() {
 		try {
 			const addToAcceptedBookings = await axios.post(
-				'http://localhost:8000/api/booking_requests',
+				'http://localhost:8000/api/accepted_requests',
 				targetRequest
 			);
 			const removeFromPendingRequests = await axios.delete(
