@@ -9,7 +9,6 @@ import OwnerPortal from './components/owner_portal/OwnerPortal';
 function App() {
 	return (
 		<div className='App'>
-			<Header />
 			<Routes>
 				<Route path='/' element={<HomePage />} />
 				<Route path='/booking-request' element={<BookingPortal />} />
