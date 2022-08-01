@@ -36,9 +36,8 @@
     border-bottom: 2px white solid;
 }
 .chapel-grounds-img {
-    max-width: 90vw;
+    max-width: 70vw;
     border-radius: 2%;
-    margin-bottom: 10px;
 }
 .chapel-desc {
     font-family: 'merriweather';
@@ -110,6 +109,9 @@
     font-size: 20px;
     padding: 5px;
 }
+.the-chapel {
+    color: seashell
+}
 .chapel-list {
     list-style: none;
     border-left: 1px solid slategray;
@@ -126,12 +128,12 @@
 }
 .booking-anchor {
     font-family: 'vonder';
-    color: seashell;
+    color: slategray;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 50px;
 }
 .booking-anchor:hover {
-    color: slategray
+    color: seashell;
 }
 /* Link to Booking Portal Section */
 #booking-link-section {
