@@ -40,6 +40,15 @@ function BookingPortal(props) {
 	return (
 		<div>
 			<header>Booking Request</header>
+			<p>
+				Placing a booking deposit guarantees your date will be held for fifteen
+				days while you consider the specifics of your wedding plans with The
+				Chapel.
+			</p>
+			<p>
+				After the fifteen days, you will need to pay your total wedding
+				contribution in order for the reservation to be confirmed.
+			</p>
 			<form onSubmit={handleSubmit} className='booking-request'>
 				<label htmlFor='name-field'>Name</label>
 				<input type='text' placeholder='name' required id='name-field' />
