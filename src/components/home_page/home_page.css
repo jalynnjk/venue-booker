@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'vonder';
+    font-style: 'normal';
+    src: url('./assets/Vonder.ttf');
+}
+/* Home Page landing Section */
+.hp-main {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/chapel.jpeg');
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size:cover;
+}
+.link-wrapper {
+    padding-top: 150px;
+}
+.enter-link {
+    text-decoration: none;
+    color: seashell;
+    font-size: 125px;
+    font-family: 'vonder';
+}
+.enter-link:hover {
+    color: slategray;
+}
+/* About Chapel Section */
+#about {
+    height: 100vh;
+    background-color: slategray;
+    color: white;
+}
+.chapel-title {
+    font-family: 'vonder';
+    font-size: 75px;
+    padding-top: 15px;
+    border-bottom: 2px white solid;
+}
+.chapel-grounds-img {
+    max-width: 70vw;
+    border-radius: 2%;
+}
+.chapel-desc {
+    font-family: 'merriweather';
+    font-size: 25px;
+    max-width: 700px;
+}
+.chapel-quote {
+    font-family: 'vonder';
+    font-size: 30px;
+}
+.interior-link-div {
+    font-size: 35px;
+}
+.chapel-interior-link {
+    text-decoration: none;
+    font-family: 'vonder';
+    font-size: 45px;
+    color: white;
+}
+.chapel-interior-link:hover {
+    color: silver;
+}
+
+@media screen and (min-width:900px) {
+    .chapel-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 50px;
+    }
+    .chapel-desc {
+        max-width: 700px;
+        padding: 40px;
+        padding-top: 100px;
+        padding-left: 70px;
+    }
+    .chapel-grounds-img {
+        max-width: 600px;
+    }
+    .chapel-interior-link {
+        font-size: 60px;
+    }
+}
+/* About Chapel Continued */
+#chapel-interior {
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+.interior-title {
+    font-family: 'vonder';
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+.interior-div-1 {
+    background-color: silver;
+    height: 100vh;
+    flex-basis: 50%;
+    color: slategray;
+    font-size: 20px;
+    padding: 5px;
+}
+.interior-div-2 {
+    background-color: rgb(159, 156, 156);
+    height: 100vh;
+    flex-basis: 50%;
+    color: seashell;
+    font-size: 20px;
+    padding: 5px;
+}
+.the-chapel {
+    color: seashell
+}
+.chapel-list {
+    list-style: none;
+    border-left: 1px solid slategray;
+    margin-top: 15px;
+    padding-left: 3px;
+    font-family: 'merriweather';
+}
+.chapel-list-2 {
+    list-style: none;
+    border-left: 1px solid seashell;
+    margin-top: 15px;
+    padding-left: 3px;
+    font-family: 'merriweather';
+}
+.booking-anchor {
+    font-family: 'vonder';
+    color: slategray;
+    text-decoration: none;
+    font-size: 50px;
+}
+.booking-anchor:hover {
+    color: seashell;
+}
+/* Link to Booking Portal Section */
+#booking-link-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/chapel-at-night.jpeg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.booking-link-wrapper {
+    padding-top: 200px;
+}
+.booking-link {
+    text-decoration: none;
+    color: seashell;
+    font-size: 100px;
+    font-family: 'vonder';
+}
+.booking-link:hover{
+    color: slategray;
+}
