@@ -76,8 +76,6 @@ function OwnerPortal(props) {
 							<Card.Text>{request.wedding_date}</Card.Text>
 							<Card.Text>{request.number_guests}</Card.Text>
 							<Card.Text>{request.budget}</Card.Text>
-							<Card.Text>{request.ceremony_location}</Card.Text>
-							<Card.Text>{request.reception_location}</Card.Text>
 							<Button
 								onClick={() => {
 									setTargetRequest(request);
