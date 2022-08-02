@@ -7,6 +7,7 @@ import moment from 'moment';
 function BookingConfirmation() {
 	const { requestID, setRequestID } = useContext(DataContext);
 	const [bookingDetails, setBookingDetails] = useState([]);
+    const [bookingDetailsConf, setBookingDetailsConf] = useState()
 
 	const getBookingDetails = async () => {
 		try {
@@ -24,6 +25,33 @@ function BookingConfirmation() {
 		getBookingDetails();
 	}, []);
 
+	async function submitBookingConf() {
+		try {
+			const response = await axios.put(
+				`https://thechapel-backend.herokuapp.com/api/booking_requests/15`, {...bookingDetailsConf}
+			);
+            console.log('success')
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		setBookingDetailsConf({
+			client_name: event.currentTarget['name-field'].value,
+			client_email: event.currentTarget['email-field'].value,
+			wedding_date: event.currentTarget['wedding-date'].value,
+			number_guests: parseInt(event.currentTarget['guest-count'].value),
+			budget: parseInt(event.currentTarget['budget'].value),
+		});
+	}
+
+    useEffect(() => {
+        if (bookingDetailsConf) {
+            submitBookingConf()
+        }
+    }, [bookingDetailsConf])
 
 	return (
 		<div className='booking-conf'>
@@ -35,20 +63,53 @@ function BookingConfirmation() {
 			</h2>
 			<h3 className='h3'>Please confirm the details of your request below</h3>
 			<div className='conf-form-container'>
-				<form className='conf-form'>
-                    <label className='conf-label' htmlFor='name'>Name</label>
-					<input defaultValue={bookingDetails.client_name} className='input' id='name' />
-                    <label className='conf-label' htmlFor='email'>Email</label>
-					<input defaultValue={bookingDetails.client_email} className='input' id='email'/>
-                    <label className='conf-label' htmlFor='date'>Wedding Date</label>
-					<input defaultValue={moment(bookingDetails.wedding_date).format('MM/DD/YYYY')} className='input' id='date'/>
-                    <label className='conf-label' htmlFor='budget'>Budget</label>
-					<input defaultValue={bookingDetails.budget} className='input' id='budget'/>
-                    <label className='conf-label' htmlFor='guests'>Number of Guests</label>
+				<form className='conf-form' onSubmit={handleSubmit}>
+					<label className='conf-label' htmlFor='name-field'>
+						Name
+					</label>
+					<input
+						defaultValue={bookingDetails.client_name}
+						className='input'
+						id='name-field'
+						required
+					/>
+					<label className='conf-label' htmlFor='email-field'>
+						Email
+					</label>
+					<input
+						defaultValue={bookingDetails.client_email}
+						className='input'
+						id='email-field'
+						required
+					/>
+					<label className='conf-label' htmlFor='wedding-date'>
+						Wedding Date
+					</label>
+					<input
+						defaultValue={moment(bookingDetails.wedding_date).format(
+							'MM/DD/YYYY'
+						)}
+						className='input'
+						id='wedding-date'
+						required
+					/>
+					<label className='conf-label' htmlFor='budget'>
+						Budget
+					</label>
+					<input
+						defaultValue={bookingDetails.budget}
+						className='input'
+						id='budget'
+						required
+					/>
+					<label className='conf-label' htmlFor='guest-count'>
+						Number of Guests
+					</label>
 					<input
 						defaultValue={bookingDetails.number_guests}
 						className='input'
-                        id='guest'
+						id='guest-count'
+						required
 					/>
 					<button type='submit' className='confirm-btn'>
 						Confirm
