@@ -96,7 +96,7 @@ function BookingPortal(props) {
 				onChange={changeDate}
 				className='calendar'
 				onClickDay={handleClickDay}
-				tileDisabled={({ today, date }) => {
+				tileDisabled={({ today, date}) => {
 					return bookedDays.some((bookedDay) => {
 						return (
 							date.getFullYear() === parseInt(bookedDay.substring(0, 4)) &&
@@ -111,7 +111,7 @@ function BookingPortal(props) {
 					Name
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='text'
 					placeholder='name'
 					required
@@ -121,7 +121,7 @@ function BookingPortal(props) {
 					Email
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='text'
 					required
 					id='email-field'
@@ -131,17 +131,16 @@ function BookingPortal(props) {
 					Wedding Date
 				</label>
 				<input
-					className='input'
-					type='text'
+					className='req-input'
 					required
 					id='wedding-date'
-					placeholder={moment(dateState).format('MM/DD/YYYY')}
+					value={moment(dateState).format('MM/DD/YYYY')}
 				/>
 				<label htmlFor='budget' className='label'>
 					Budget
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='number'
 					min={0}
 					id='budget'
@@ -152,7 +151,7 @@ function BookingPortal(props) {
 					Number of Guests
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='number'
 					min={30}
 					max={150}
