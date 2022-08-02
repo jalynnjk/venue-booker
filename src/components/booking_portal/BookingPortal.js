@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import './calendar.css';
 import moment from 'moment';
 
 function BookingPortal(props) {
@@ -46,18 +46,11 @@ function BookingPortal(props) {
 	};
 
 	return (
-		<div>
-			<header className='booking-title'>Booking Request</header>
-			<Calendar value={dateState} onChange={changeDate} />
-			{/* <p>
-				Placing a booking deposit guarantees your date will be held for fifteen
-				days while you consider the specifics of your wedding plans with The
-				Chapel.
-			</p>
-			<p>
-				After the fifteen days, you will need to pay your total wedding
-				contribution in order for the reservation to be confirmed.
-			</p> */}
+		<div className='booking-portal-container'>
+			<header className='booking-title'>
+				Book your day at <span className='the-chapel'>The Chapel</span>
+			</header>
+			<Calendar value={dateState} onChange={changeDate} className='calendar' />
 			<form onSubmit={handleSubmit} className='booking-request'>
 				<label htmlFor='name-field' className='label'>
 					Name
