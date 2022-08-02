@@ -2,9 +2,13 @@ import './booking_portal.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import moment from 'moment';
 
 function BookingPortal(props) {
 	const [bookingRequest, setBookingRequest] = useState();
+	const [dateState, setDateState] = useState(new Date());
 	const navigate = useNavigate();
 
 	function handleSubmit(event) {
@@ -37,9 +41,14 @@ function BookingPortal(props) {
 		}
 	}, [bookingRequest]);
 
+	const changeDate = (event) => {
+		setDateState(event);
+	};
+
 	return (
 		<div>
 			<header className='booking-title'>Booking Request</header>
+			<Calendar value={dateState} onChange={changeDate} />
 			{/* <p>
 				Placing a booking deposit guarantees your date will be held for fifteen
 				days while you consider the specifics of your wedding plans with The
@@ -73,7 +82,13 @@ function BookingPortal(props) {
 				<label htmlFor='wedding-date' className='label'>
 					Wedding Date
 				</label>
-				<input className='input' type='date' required id='wedding-date' />
+				<input
+					className='input'
+					type='text'
+					required
+					id='wedding-date'
+					placeholder={moment(dateState).format('MM/DD/YYYY')}
+				/>
 				<label htmlFor='budget' className='label'>
 					Budget
 				</label>

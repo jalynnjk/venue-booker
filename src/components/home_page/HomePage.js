@@ -1,8 +1,5 @@
 import './home_page.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Nav from 'react-bootstrap/Nav';
-import NavBar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import grounds from './assets/chapel-grounds.jpeg';
 
