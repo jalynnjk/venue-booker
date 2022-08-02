@@ -12,7 +12,7 @@ function OwnerPortal(props) {
 	async function retrieveBookingRequests() {
 		try {
 			const response = await axios.get(
-				'http://localhost:8000/api/booking_requests'
+				'https://thechapel-backend.herokuapp.com/api/booking_requests'
 			);
 			setBookingRequests(response.data);
 		} catch (error) {
@@ -27,11 +27,11 @@ function OwnerPortal(props) {
 	async function handleAcceptRequest() {
 		try {
 			const addToAcceptedBookings = await axios.post(
-				'http://localhost:8000/api/accepted_requests',
+				'https://thechapel-backend.herokuapp.com/api/accepted_requests',
 				targetRequest
 			);
 			const removeFromPendingRequests = await axios.delete(
-				`http://localhost:8000/api/booking_requests/${targetRequest.id}`
+				`https://thechapel-backend.herokuapp.com/api/booking_requests/${targetRequest.id}`
 			);
 			const updateRequests = await setUpdatedBookingRequests(
 				removeFromPendingRequests.data
@@ -44,7 +44,7 @@ function OwnerPortal(props) {
 	async function handleDeclineRequest() {
 		try {
 			const removeFromPendingRequests = await axios.delete(
-				`http://localhost:8000/api/booking_requests/${targetRequest.id}`
+				`https://thechapel-backend.herokuapp.com/api/booking_requests/${targetRequest.id}`
 			);
 			const updateRequests = await setUpdatedBookingRequests(
 				removeFromPendingRequests.data

@@ -23,7 +23,7 @@ function BookingPortal(props) {
 	const sendPost = async () => {
 		try {
 			const response = await axios.post(
-				'http://localhost:8000/api/booking_requests',
+				'https://thechapel-backend.herokuapp.com/api/booking_requests',
 				{ ...bookingRequest }
 			);
 			console.log('success!');
