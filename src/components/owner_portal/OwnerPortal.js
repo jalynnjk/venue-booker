@@ -28,7 +28,7 @@ function OwnerPortal(props) {
 		try {
 			const addToAcceptedBookings = await axios.post(
 				'https://thechapel-backend.herokuapp.com/api/accepted_requests',
-				targetRequest
+				{...targetRequest}
 			);
 			const removeFromPendingRequests = await axios.delete(
 				`https://thechapel-backend.herokuapp.com/api/booking_requests/${targetRequest.id}`
