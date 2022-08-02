@@ -43,7 +43,7 @@ function HomePage(props) {
 			<section id='chapel-interior'>
 				<div className='interior-div-1'>
 					<h1 className='interior-title'>
-						What will your wedding at <span className='the-chapel'>The Chapel</span> look like?
+						What will your wedding at <span className='the-chapel-hp'>The Chapel</span> look like?
 					</h1>
 					<ul>
 						<li className='chapel-list'>

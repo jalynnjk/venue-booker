@@ -3,16 +3,18 @@ import axios from 'axios';
 import { useState, useContext, useEffect } from 'react';
 import { DataContext } from '../../dataContext';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
 
 function BookingConfirmation() {
 	const { requestID, setRequestID } = useContext(DataContext);
 	const [bookingDetails, setBookingDetails] = useState([]);
-    const [bookingDetailsConf, setBookingDetailsConf] = useState()
+	const [bookingDetailsConf, setBookingDetailsConf] = useState();
+	const navigate = useNavigate();
 
 	const getBookingDetails = async () => {
 		try {
 			const response = await axios.get(
-				`https://thechapel-backend.herokuapp.com/api/booking_requests/15`
+				`https://thechapel-backend.herokuapp.com/api/booking_requests/${requestID}`
 			);
 			console.log(response.data);
 			setBookingDetails(response.data);
@@ -22,15 +24,18 @@ function BookingConfirmation() {
 	};
 
 	useEffect(() => {
+        if (requestID) {
 		getBookingDetails();
-	}, []);
+        }
+	}, [requestID]);
 
 	async function submitBookingConf() {
 		try {
 			const response = await axios.put(
-				`https://thechapel-backend.herokuapp.com/api/booking_requests/15`, {...bookingDetailsConf}
+				`https://thechapel-backend.herokuapp.com/api/booking_requests/${requestID}`,
+				{ ...bookingDetailsConf }
 			);
-            console.log('success')
+			console.log('success');
 		} catch (error) {
 			console.log(error);
 		}
@@ -47,11 +52,12 @@ function BookingConfirmation() {
 		});
 	}
 
-    useEffect(() => {
-        if (bookingDetailsConf) {
-            submitBookingConf()
-        }
-    }, [bookingDetailsConf])
+	useEffect(() => {
+		if (bookingDetailsConf) {
+			submitBookingConf();
+			navigate('/');
+		}
+	}, [bookingDetailsConf]);
 
 	return (
 		<div className='booking-conf'>
