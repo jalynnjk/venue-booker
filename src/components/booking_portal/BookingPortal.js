@@ -15,8 +15,6 @@ function BookingPortal(props) {
 			wedding_date: event.currentTarget['wedding-date'].value,
 			number_guests: parseInt(event.currentTarget['guest-count'].value),
 			budget: parseInt(event.currentTarget['budget'].value),
-			ceremony_location: event.currentTarget['ceremony-site-field'].value,
-			reception_location: event.currentTarget['reception-site-field'].value,
 		});
 	}
 
@@ -99,7 +97,7 @@ function BookingPortal(props) {
 					required
 					id='guest-count'
 				/>
-				<input type='submit' value='Submit' className='submit-btn' />
+				<input type='submit' className='submit-btn' />
 			</form>
 		</div>
 	);
