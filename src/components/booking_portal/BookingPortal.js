@@ -99,26 +99,6 @@ function BookingPortal(props) {
 					required
 					id='guest-count'
 				/>
-				<label htmlFor='ceremony-site-field' className='label'>
-					Ceremony Site
-				</label>
-				<input
-					className='input'
-					type='text'
-					required
-					id='ceremony-site-field'
-					placeholder='glass chapel'
-				/>
-				<label htmlFor='reception-site-field' className='label'>
-					Reception Site
-				</label>
-				<input
-					className='input'
-					type='text'
-					required
-					id='reception-site-field'
-					placeholder='ballroom'
-				/>
 				<input type='submit' value='Submit' className='submit-btn' />
 			</form>
 		</div>
