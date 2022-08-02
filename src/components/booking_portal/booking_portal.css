@@ -15,12 +15,6 @@
     font-size: 15px;
     color: black;
 }
-#react-calendar__month-view__days__day--weekend {
-    color: black;
-}
-#react-calendar__tile--now {
-    background: slategray;
-}
 .booking-request {
     display: flex;
     flex-direction: column;
@@ -40,4 +34,5 @@
 .submit-btn {
     max-width: 250px;
     align-self: center;
+    margin-top: 10px;
 }
