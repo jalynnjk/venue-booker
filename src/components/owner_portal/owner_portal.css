@@ -52,3 +52,10 @@
     color: seashell;
     cursor: pointer;
 }
+
+@media screen and (min-width: 900px) {
+    #request-card  {
+        width: 55%;
+        align-self: center;
+    }
+}

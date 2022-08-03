@@ -73,7 +73,7 @@ function HomePage(props) {
 					</ul>
 				</div>
 				<div className='interior-div-2'>
-					<h1 className='interior-title'>Leading up to the Festivities...</h1>
+					<h1 className='interior-title  interior-title-2'>Leading up to the Festivities...</h1>
 					<ul>
 						<li className='chapel-list-2'>
 							Access to The Chapel's in-house wedding planner who will assist

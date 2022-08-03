@@ -81,20 +81,22 @@
         justify-content: space-between;
         padding-top: 50px;
     }
+    .enter-link {
+        font-size: 175px;
+    }
     .chapel-desc {
         max-width: 700px;
         padding: 40px;
         padding-top: 100px;
-        padding-left: 70px;
     }
     .chapel-grounds-img {
-        max-width: 600px;
+        max-width: 49vw;
     }
     .chapel-interior-link {
         font-size: 60px;
     }
     .arrow {
-        display: block;
+        display: inline;
     }
 }
 /* About Chapel Continued */
@@ -159,6 +161,22 @@
     .interior-title {
         font-size: 35px;
     }
+}
+
+@media screen and (min-width: 900px) {
+    .interior-title  {
+        font-size: 60px;
+    }
+    .interior-title-2  {
+        margin-top: 4%;
+        margin-bottom: 65px;
+    }
+    .chapel-list, .chapel-list-2 {
+        font-size: 25px;
+    }
+    .booking-anchor {
+        font-size: 70px;
+    }
 
 }
 /* Link to Booking Portal Section */
@@ -182,6 +200,14 @@
     color: slategray;
 }
 
+@media screen and (min-width: 500px) {
+    .booking-link-wrapper {
+        padding-top: 100px;
+    }
+    .booking-link {
+        font-size: 160px;
+    }
+}
 /* Footer Section */
 .footer {
     background-color: slategray;
@@ -219,4 +245,23 @@
 }
 .owner-portal:hover {
     color: seashell;
+}
+
+@media screen and (min-width: 500px){
+    .contact-info {
+        font-size: 20px;
+        padding-top: 20px;
+    }
+    .socials {
+        margin-top: 8%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .contact-info {
+        flex-basis: 50%;
+    }
+    .socials {
+        margin-top: 2.5%;
+    }
 }

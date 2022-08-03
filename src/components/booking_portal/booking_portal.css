@@ -37,3 +37,20 @@
     align-self: center;
     margin-top: 10px;
 }
+
+@media screen and (min-width: 900px) {
+    .calendar {
+        flex-basis: 35%;
+    }
+    .booking-title {
+        flex-basis: 100%;
+        font-size: 80px;
+    }
+    .booking-request {
+        justify-content: center;
+    }
+    .req-input{
+        width: 750px;
+        align-self: center;
+    }
+}
