@@ -118,7 +118,8 @@ function OwnerPortal(props) {
 								Number of Guests: {request.number_guests}
 							</Card.Text>
 							<Card.Text className='text'>Budget: {request.budget}</Card.Text>
-							<div className='buttons'>
+                            {requests === "Pending Requests" ? 
+                            (<div className='buttons'>
 								<Button
 									className='accept-button'
 									onClick={() => {
@@ -135,7 +136,7 @@ function OwnerPortal(props) {
 									}}>
 									Decline
 								</Button>
-							</div>
+							</div>) : (null)}
 						</Card>
 					);
 				})
