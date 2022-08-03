@@ -12,11 +12,12 @@ function BookingPortal(props) {
 	const [dateState, setDateState] = useState(new Date());
 	const [acceptedRequests, setAcceptedRequests] = useState([]);
 	const [bookedDays, setBookedDays] = useState([]);
-	const { requestID, setRequestID } = useContext(DataContext);
+	const { requestID, setRequestID, weddingDate, setWeddingDate } = useContext(DataContext);
 	const navigate = useNavigate();
 
 	function handleSubmit(event) {
 		event.preventDefault();
+		setWeddingDate(moment(dateState).format('MM/DD/YYYY'));
 		setBookingRequest({
 			client_name: event.currentTarget['name-field'].value,
 			client_email: event.currentTarget['email-field'].value,
