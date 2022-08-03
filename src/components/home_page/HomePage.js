@@ -2,9 +2,9 @@ import './home_page.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'react-router-dom';
 import grounds from './assets/chapel-grounds.jpeg';
-import insta from './assets/gray_circle_instagram_icon.png'
+import insta from './assets/gray_circle_instagram_icon.png';
 import facebook from './assets/gray_circle_facebook_icon.png';
-import twitter from './assets/gray_twitter_circle_icon.png'
+import twitter from './assets/gray_twitter_circle_icon.png';
 
 function HomePage(props) {
 	return (
@@ -46,7 +46,8 @@ function HomePage(props) {
 			<section id='chapel-interior'>
 				<div className='interior-div-1'>
 					<h1 className='interior-title'>
-						What will your wedding at <span className='the-chapel-hp'>The Chapel</span> look like?
+						What will your wedding at{' '}
+						<span className='the-chapel-hp'>The Chapel</span> look like?
 					</h1>
 					<ul>
 						<li className='chapel-list'>
@@ -64,7 +65,7 @@ function HomePage(props) {
 						</li>
 						<li className='chapel-list'>
 							Catered reception dinner personalized by yourself and crafted by
-							world-class Italian chef Mauro Colagreco.
+							world-class Italian chef Mauro Colagreco
 						</li>
 						<li className='chapel-list'>
 							Dinnerware, glassware, and flatware are all provided for your
@@ -73,7 +74,9 @@ function HomePage(props) {
 					</ul>
 				</div>
 				<div className='interior-div-2'>
-					<h1 className='interior-title  interior-title-2'>Leading up to the Festivities...</h1>
+					<h1 className='interior-title  interior-title-2'>
+						Leading up to the Festivities...
+					</h1>
 					<ul>
 						<li className='chapel-list-2'>
 							Access to The Chapel's in-house wedding planner who will assist
@@ -88,9 +91,9 @@ function HomePage(props) {
 							Rehearsal with your officiator within the week leading up to the
 							wedding followed by an intimate dinner for the wedding party
 						</li>
-                        <li className='chapel-list-2'>
-                           Available space for between 30 and 150 guests
-                        </li>
+						<li className='chapel-list-2'>
+							Available space for between 30 and 150 guests
+						</li>
 					</ul>
 					<AnchorLink href='#booking-link-section' className='booking-anchor'>
 						Save the Date
@@ -105,18 +108,29 @@ function HomePage(props) {
 				</div>
 			</section>
 			<footer className='footer'>
-                <div className='contact-info'>
-                    <h4 className='chapel-contact'>Contact The Chapel</h4>
-                    <p className='chapel-email'>thechapel@gmail.com</p>
-                    <p className='chapel-phone'>310-377-1650</p>
-                    <p className='chapel-address'>5755 Palos Verdes Drive South, Rancho Palos Verdes, California, 90275</p>
-                </div>
-                <div className='socials'>
-                    <a href='www.instagram.com'><img src={insta} alt="instagram logo" /></a>
-                    <a href="www.facebook.com"><img src={facebook} alt="facebook logo" /></a>
-                    <a href="www.twitter.com"><img src={twitter} alt="twitter logo" /></a>
-                </div>
-				<Link to='/owner-portal' className='owner-portal'>Owner Portal</Link>
+				<div className='contact-info'>
+					<h4 className='chapel-contact'>Contact The Chapel</h4>
+					<p className='chapel-email'>thechapel@gmail.com</p>
+					<p className='chapel-phone'>310-377-1650</p>
+					<p className='chapel-address'>
+						5755 Palos Verdes Drive South, Rancho Palos Verdes, California,
+						90275
+					</p>
+				</div>
+				<div className='socials'>
+					<a href='www.instagram.com'>
+						<img src={insta} alt='instagram logo' />
+					</a>
+					<a href='www.facebook.com'>
+						<img src={facebook} alt='facebook logo' />
+					</a>
+					<a href='www.twitter.com'>
+						<img src={twitter} alt='twitter logo' />
+					</a>
+				</div>
+				<Link to='/owner-portal' className='owner-portal'>
+					Owner Portal
+				</Link>
 			</footer>
 		</div>
 	);
