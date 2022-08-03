@@ -10,8 +10,10 @@ import { useState } from 'react';
 
 function App() {
   const [requestID, setRequestID] = useState('');
+  const [weddingDate, setWeddingDate] = useState()
+
 	return (
-		<DataContext.Provider className='App' value={{requestID, setRequestID}}>
+		<DataContext.Provider className='App' value={{requestID, setRequestID, weddingDate, setWeddingDate}}>
 			<Routes>
 				<Route path='/' element={<HomePage />} />
 				<Route path='/booking-portal/*' element={<BookingPortal />} />

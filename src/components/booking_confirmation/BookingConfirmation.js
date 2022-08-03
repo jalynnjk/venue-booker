@@ -6,7 +6,7 @@ import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 
 function BookingConfirmation() {
-	const { requestID, setRequestID } = useContext(DataContext);
+	const { requestID, setRequestID, weddingDate, setWeddingDate } = useContext(DataContext);
 	const [bookingDetails, setBookingDetails] = useState([]);
 	const [bookingDetailsConf, setBookingDetailsConf] = useState();
 	const navigate = useNavigate();
@@ -16,7 +16,6 @@ function BookingConfirmation() {
 			const response = await axios.get(
 				`https://thechapel-backend.herokuapp.com/api/booking_requests/${requestID}`
 			);
-			console.log(response.data);
 			setBookingDetails(response.data);
 		} catch (error) {
 			console.log(error);
@@ -35,7 +34,6 @@ function BookingConfirmation() {
 				`https://thechapel-backend.herokuapp.com/api/booking_requests/${requestID}`,
 				{ ...bookingDetailsConf }
 			);
-			console.log('success');
 		} catch (error) {
 			console.log(error);
 		}
@@ -92,7 +90,7 @@ function BookingConfirmation() {
 						Wedding Date
 					</label>
 					<input
-						value = {bookingDetails.wedding_date}
+						defaultValue = {weddingDate}
 						className='input'
 						id='wedding-date'
 						required
