@@ -6,7 +6,7 @@ The purpose of this project was to build an attractively styled web application 
 ## Live Deployment
 https://thechapel.netlify.app/
 
-##Backend Repository
+## Backend Repository
 https://github.com/jalynnjk/venue-booking-app-backend
 
 ## Technologies
