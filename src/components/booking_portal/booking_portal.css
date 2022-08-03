@@ -37,6 +37,17 @@
     align-self: center;
     margin-top: 10px;
 }
+.req-input, .date-container, #wedding-date {
+    width: 300px;
+    align-self: center;
+}
+
+@media screen and (min-width: 400px) {
+    .req-input, .date-container, #wedding-date {
+        width: 400px;
+        align-self: center;
+    }
+}
 
 @media screen and (min-width: 900px) {
     .calendar {
@@ -50,6 +61,10 @@
         justify-content: center;
     }
     .req-input{
+        width: 750px;
+        align-self: center;
+    }
+    .date-container, #wedding-date {
         width: 750px;
         align-self: center;
     }

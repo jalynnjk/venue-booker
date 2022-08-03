@@ -200,7 +200,7 @@
     color: slategray;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
     .booking-link-wrapper {
         padding-top: 100px;
     }

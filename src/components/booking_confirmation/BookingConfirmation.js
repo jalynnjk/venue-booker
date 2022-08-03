@@ -92,9 +92,7 @@ function BookingConfirmation() {
 						Wedding Date
 					</label>
 					<input
-						defaultValue={moment(bookingDetails.wedding_date).format(
-							'MM/DD/YYYY'
-						)}
+						value = {bookingDetails.wedding_date}
 						className='input'
 						id='wedding-date'
 						required

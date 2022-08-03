@@ -20,7 +20,7 @@ function BookingPortal(props) {
 		setBookingRequest({
 			client_name: event.currentTarget['name-field'].value,
 			client_email: event.currentTarget['email-field'].value,
-			wedding_date: event.currentTarget['wedding-date'].value,
+			wedding_date: moment(dateState).format('MM/DD/YYYY'),
 			number_guests: parseInt(event.currentTarget['guest-count'].value),
 			budget: parseInt(event.currentTarget['budget'].value),
 		});
@@ -49,16 +49,10 @@ function BookingPortal(props) {
 		}
 	};
 
-	function handleClickDay(event) {
-		if (bookedDays.includes(moment(event).format('YYYY-MM-DD'))) {
-			console.log('This date has been booked');
-			console.log('event:', event);
-		}
-	}
-
 	useEffect(() => {
 		getBookedDays();
 	}, []);
+
 	useEffect(() => {
 		let tempBookedDays = [];
 		acceptedRequests.forEach((request) => {
@@ -66,14 +60,6 @@ function BookingPortal(props) {
 		});
 		setBookedDays(tempBookedDays);
 	}, [acceptedRequests]);
-
-	function handleTileDisable({ activeStartDate, date, view }) {
-		return date.getDay() === 0;
-	}
-
-	// useEffect(() => {
-	//     handleTileDisable()
-	// }, [bookedDays])
 
 	useEffect(() => {
 		if (bookingRequest) {
@@ -85,6 +71,7 @@ function BookingPortal(props) {
 	const changeDate = (event) => {
 		setDateState(event);
 	};
+
 	const today = new Date();
 	return (
 		<div className='booking-portal-container'>
@@ -95,7 +82,6 @@ function BookingPortal(props) {
 				value={dateState}
 				onChange={changeDate}
 				className='calendar'
-				onClickDay={handleClickDay}
 				tileDisabled={({ today, date }) => {
 					return bookedDays.some((bookedDay) => {
 						return (
@@ -130,12 +116,14 @@ function BookingPortal(props) {
 				<label htmlFor='wedding-date' className='label'>
 					Wedding Date
 				</label>
-				<input
-					className='req-input'
-					required
-					id='wedding-date'
-					defaultValue={moment(dateState).format('MM/DD/YYYY')}
-				/>
+				<div key={dateState} className='date-container'>
+					<input
+						className='req-input'
+						required
+						id='wedding-date'
+						defaultValue={moment(dateState).format('MM/DD/YYYY')}
+					/>
+				</div>
 				<label htmlFor='budget' className='label'>
 					Budget
 				</label>
@@ -155,7 +143,7 @@ function BookingPortal(props) {
 					type='number'
 					min={30}
 					max={150}
-					placeholder='30'
+					placeholder={30}
 					required
 					id='guest-count'
 				/>
