@@ -26,27 +26,31 @@
 /* About Chapel Section */
 #about {
     height: 100vh;
-    background-color: slategray;
-    color: white;
+    background-color: #708090;
+    color: seashell;
 }
 .chapel-title {
     font-family: 'vonder';
     font-size: 75px;
     padding-top: 15px;
-    border-bottom: 2px white solid;
+    border-bottom: 2px seashell solid;
 }
 .chapel-grounds-img {
-    max-width: 70vw;
+    max-width: 90vw;
     border-radius: 2%;
 }
 .chapel-desc {
     font-family: 'merriweather';
     font-size: 25px;
     max-width: 700px;
+    padding: 10px;
 }
 .chapel-quote {
     font-family: 'vonder';
     font-size: 30px;
+}
+.arrow {
+    display: none;
 }
 .interior-link-div {
     font-size: 35px;
@@ -55,10 +59,19 @@
     text-decoration: none;
     font-family: 'vonder';
     font-size: 45px;
-    color: white;
+    color: seashell;
 }
 .chapel-interior-link:hover {
     color: silver;
+}
+@media screen and (min-width: 500px) {
+    .chapel-grounds-img {
+        max-width: 60vw;
+        margin-right: 10px;
+    }
+    .chapel-interior-link {
+        font-size: 50px;
+    }
 }
 
 @media screen and (min-width:900px) {
@@ -68,34 +81,38 @@
         justify-content: space-between;
         padding-top: 50px;
     }
+    .enter-link {
+        font-size: 175px;
+    }
     .chapel-desc {
         max-width: 700px;
         padding: 40px;
         padding-top: 100px;
-        padding-left: 70px;
     }
     .chapel-grounds-img {
-        max-width: 600px;
+        max-width: 49vw;
     }
     .chapel-interior-link {
         font-size: 60px;
     }
+    .arrow {
+        display: inline;
+    }
 }
 /* About Chapel Continued */
 #chapel-interior {
-    height: 100vh;
     background-color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    border: 5px solid seashell;
 }
 .interior-title {
     font-family: 'vonder';
-    font-size: 35px;
+    font-size: 40px;
     margin-bottom: 25px;
 }
 .interior-div-1 {
     background-color: silver;
-    height: 100vh;
     flex-basis: 50%;
     color: slategray;
     font-size: 20px;
@@ -103,13 +120,12 @@
 }
 .interior-div-2 {
     background-color: rgb(159, 156, 156);
-    height: 100vh;
     flex-basis: 50%;
     color: seashell;
     font-size: 20px;
     padding: 5px;
 }
-.the-chapel {
+.the-chapel-hp {
     color: seashell
 }
 .chapel-list {
@@ -135,6 +151,34 @@
 .booking-anchor:hover {
     color: seashell;
 }
+
+@media screen and (min-width: 500px) {
+    #chapel-interior {
+        height: 100vh;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .interior-title {
+        font-size: 35px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .interior-title  {
+        font-size: 60px;
+    }
+    .interior-title-2  {
+        margin-top: 4%;
+        margin-bottom: 65px;
+    }
+    .chapel-list, .chapel-list-2 {
+        font-size: 25px;
+    }
+    .booking-anchor {
+        font-size: 70px;
+    }
+
+}
 /* Link to Booking Portal Section */
 #booking-link-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/chapel-at-night.jpeg');
@@ -154,4 +198,70 @@
 }
 .booking-link:hover{
     color: slategray;
+}
+
+@media screen and (min-width: 500px) {
+    .booking-link-wrapper {
+        padding-top: 100px;
+    }
+    .booking-link {
+        font-size: 160px;
+    }
+}
+/* Footer Section */
+.footer {
+    background-color: slategray;
+    color: seashell;
+    font-family: 'merriweather';
+    display: flex;
+    border-top: 1px solid silver;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 15px;
+}
+.chapel-contact {
+    font-family: 'vonder';
+    font-size: 35px;
+    border-bottom: 1px solid silver;
+}
+.contact-info {
+    padding: 10px;
+    flex-basis: 60%;
+    border: 1px solid silver;
+    margin-left: 50px;
+}
+.socials {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    flex-direction: column;
+    margin-top: 14%;
+}
+.owner-portal {
+    text-decoration: none;
+    color: silver;
+    flex-basis: 100%;
+}
+.owner-portal:hover {
+    color: seashell;
+}
+
+@media screen and (min-width: 500px){
+    .contact-info {
+        font-size: 20px;
+        padding-top: 20px;
+    }
+    .socials {
+        margin-top: 8%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .contact-info {
+        flex-basis: 50%;
+    }
+    .socials {
+        margin-top: 2.5%;
+    }
 }

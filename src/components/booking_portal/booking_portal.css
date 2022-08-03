@@ -1,7 +1,56 @@
+@font-face {
+    font-family: 'vonder';
+    font-style: 'normal';
+    src: url('./assets/Vonder.ttf');
+}
+
+.booking-portal-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'merriweather';
+    font-size: 20px;
+    border: 10px solid slategray;
+}
+.calendar {
+    font-size: 15px;
+    color: black;
+}
 .booking-request {
     display: flex;
     flex-direction: column;
     width: 250px;
     gap: 10px;
     padding: 20px;
+    flex-basis: 100%;
+}
+.booking-title {
+    font-size: 60px;
+    font-family: 'vonder';
+    color: slategray;
+}
+.the-chapel {
+    color: silver;
+}
+.submit-btn {
+    width: 200px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 900px) {
+    .calendar {
+        flex-basis: 35%;
+    }
+    .booking-title {
+        flex-basis: 100%;
+        font-size: 80px;
+    }
+    .booking-request {
+        justify-content: center;
+    }
+    .req-input{
+        width: 750px;
+        align-self: center;
+    }
 }

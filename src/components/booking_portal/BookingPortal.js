@@ -1,10 +1,18 @@
 import './booking_portal.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DataContext } from '../../dataContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Calendar from 'react-calendar';
+import './calendar.css';
+import moment from 'moment';
 
 function BookingPortal(props) {
 	const [bookingRequest, setBookingRequest] = useState();
+	const [dateState, setDateState] = useState(new Date());
+	const [acceptedRequests, setAcceptedRequests] = useState([]);
+	const [bookedDays, setBookedDays] = useState([]);
+	const { requestID, setRequestID } = useContext(DataContext);
 	const navigate = useNavigate();
 
 	function handleSubmit(event) {
@@ -24,37 +32,86 @@ function BookingPortal(props) {
 				'https://thechapel-backend.herokuapp.com/api/booking_requests',
 				{ ...bookingRequest }
 			);
-			console.log('success!');
+			setRequestID(response.data.id);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	const getBookedDays = async () => {
+		try {
+			const response = await axios.get(
+				'https://thechapel-backend.herokuapp.com/api/accepted_requests'
+			);
+			setAcceptedRequests(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	function handleClickDay(event) {
+		if (bookedDays.includes(moment(event).format('YYYY-MM-DD'))) {
+			console.log('This date has been booked');
+			console.log('event:', event);
+		}
+	}
+
+	useEffect(() => {
+		getBookedDays();
+	}, []);
+	useEffect(() => {
+		let tempBookedDays = [];
+		acceptedRequests.forEach((request) => {
+			tempBookedDays.push(request.wedding_date);
+		});
+		setBookedDays(tempBookedDays);
+	}, [acceptedRequests]);
+
+	function handleTileDisable({ activeStartDate, date, view }) {
+		return date.getDay() === 0;
+	}
+
+	// useEffect(() => {
+	//     handleTileDisable()
+	// }, [bookedDays])
+
 	useEffect(() => {
 		if (bookingRequest) {
 			sendPost();
-			navigate('/');
+			navigate('/booking-confirmation');
 		}
 	}, [bookingRequest]);
 
+	const changeDate = (event) => {
+		setDateState(event);
+	};
+	const today = new Date();
 	return (
-		<div>
-			<header className='booking-title'>Booking Request</header>
-			{/* <p>
-				Placing a booking deposit guarantees your date will be held for fifteen
-				days while you consider the specifics of your wedding plans with The
-				Chapel.
-			</p>
-			<p>
-				After the fifteen days, you will need to pay your total wedding
-				contribution in order for the reservation to be confirmed.
-			</p> */}
+		<div className='booking-portal-container'>
+			<header className='booking-title'>
+				Book your day at <span className='the-chapel'>The Chapel</span>
+			</header>
+			<Calendar
+				value={dateState}
+				onChange={changeDate}
+				className='calendar'
+				onClickDay={handleClickDay}
+				tileDisabled={({ today, date }) => {
+					return bookedDays.some((bookedDay) => {
+						return (
+							date.getFullYear() === parseInt(bookedDay.substring(0, 4)) &&
+							date.getMonth() === parseInt(bookedDay.substring(5, 7)) - 1 &&
+							date.getDate() === parseInt(bookedDay.substring(8))
+						);
+					});
+				}}
+			/>
 			<form onSubmit={handleSubmit} className='booking-request'>
 				<label htmlFor='name-field' className='label'>
 					Name
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='text'
 					placeholder='name'
 					required
@@ -64,7 +121,7 @@ function BookingPortal(props) {
 					Email
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='text'
 					required
 					id='email-field'
@@ -73,12 +130,17 @@ function BookingPortal(props) {
 				<label htmlFor='wedding-date' className='label'>
 					Wedding Date
 				</label>
-				<input className='input' type='date' required id='wedding-date' />
+				<input
+					className='req-input'
+					required
+					id='wedding-date'
+					defaultValue={moment(dateState).format('MM/DD/YYYY')}
+				/>
 				<label htmlFor='budget' className='label'>
 					Budget
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='number'
 					min={0}
 					id='budget'
@@ -89,7 +151,7 @@ function BookingPortal(props) {
 					Number of Guests
 				</label>
 				<input
-					className='input'
+					className='req-input'
 					type='number'
 					min={30}
 					max={150}

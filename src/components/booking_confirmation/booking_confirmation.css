@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'vonder';
+    font-style: 'normal';
+    src: url('./assets/Vonder.ttf');
+}
+.booking-conf {
+    background-color: slategray;
+    border: 10px  solid silver;
+    font-family: 'merriweather';
+    padding: 10px;
+}
+.conf-label  {
+    color: rgb(223, 223, 223);
+}
+.h1 {
+    font-family: 'vonder';
+    font-size: 75px;
+    color: seashell;
+}
+.h2 {
+    color: rgb(192, 192, 192);
+    margin-bottom: 30px;
+    font-style: oblique;
+}
+.h3 {
+    color: seashell;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+.conf-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'merriweather';
+    font-size: 20px;
+   
+}
+.conf-form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 10px;
+    padding: 20px;
+    flex-basis: 100%;
+
+}
+.input {
+    color: black;
+}
+.confirm-btn {
+    width: 200px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 900px) {
+    .input {
+        width: 750px;
+        align-self: center;
+    }
+}

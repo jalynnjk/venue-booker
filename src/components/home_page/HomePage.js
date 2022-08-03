@@ -1,10 +1,10 @@
 import './home_page.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Nav from 'react-bootstrap/Nav';
-import NavBar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import grounds from './assets/chapel-grounds.jpeg';
+import insta from './assets/gray_circle_instagram_icon.png'
+import facebook from './assets/gray_circle_facebook_icon.png';
+import twitter from './assets/gray_twitter_circle_icon.png'
 
 function HomePage(props) {
 	return (
@@ -32,7 +32,7 @@ function HomePage(props) {
 							<AnchorLink
 								href='#chapel-interior'
 								className='chapel-interior-link'>
-								Step Inside -&gt;
+								Step Inside <span className='arrow'>-&gt;</span>
 							</AnchorLink>
 						</span>
 					</p>
@@ -46,7 +46,7 @@ function HomePage(props) {
 			<section id='chapel-interior'>
 				<div className='interior-div-1'>
 					<h1 className='interior-title'>
-						What will your wedding at <span className='the-chapel'>The Chapel</span> look like?
+						What will your wedding at <span className='the-chapel-hp'>The Chapel</span> look like?
 					</h1>
 					<ul>
 						<li className='chapel-list'>
@@ -73,7 +73,7 @@ function HomePage(props) {
 					</ul>
 				</div>
 				<div className='interior-div-2'>
-					<h1 className='interior-title'>Leading up to the Festivities...</h1>
+					<h1 className='interior-title  interior-title-2'>Leading up to the Festivities...</h1>
 					<ul>
 						<li className='chapel-list-2'>
 							Access to The Chapel's in-house wedding planner who will assist
@@ -104,8 +104,19 @@ function HomePage(props) {
 					</Link>
 				</div>
 			</section>
-			<footer>
-				<Link to='/owner-portal'>Log-In</Link>
+			<footer className='footer'>
+                <div className='contact-info'>
+                    <h4 className='chapel-contact'>Contact The Chapel</h4>
+                    <p className='chapel-email'>thechapel@gmail.com</p>
+                    <p className='chapel-phone'>310-377-1650</p>
+                    <p className='chapel-address'>5755 Palos Verdes Drive South, Rancho Palos Verdes, California, 90275</p>
+                </div>
+                <div className='socials'>
+                    <a href='www.instagram.com'><img src={insta} alt="instagram logo" /></a>
+                    <a href="www.facebook.com"><img src={facebook} alt="facebook logo" /></a>
+                    <a href="www.twitter.com"><img src={twitter} alt="twitter logo" /></a>
+                </div>
+				<Link to='/owner-portal' className='owner-portal'>Owner Portal</Link>
 			</footer>
 		</div>
 	);

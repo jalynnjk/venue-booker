@@ -1,0 +1,61 @@
+.request-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    font-family: 'merriweather';
+    background-color: slategray;
+}
+.owner-title {
+    font-family: 'vonder';
+    font-size: 50px;
+    color: seashell;
+}
+#request-card {
+    padding: 20px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.accept-button {
+    width: 250px;
+    background-color: slategray;
+    border: black;
+}
+.decline-button {
+    width: 250px;
+    background-color: silver;
+    border: black;
+}
+.text {
+    margin-bottom: 5px;
+}
+.filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+}
+.request-filters {
+    color: silver;
+    list-style: none;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.request-filters:hover {
+    color: seashell;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+    #request-card  {
+        width: 55%;
+        align-self: center;
+    }
+}
