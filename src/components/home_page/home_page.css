@@ -41,7 +41,7 @@
 }
 .chapel-desc {
     font-family: 'merriweather';
-    font-size: 25px;
+    font-size: 29px;
     max-width: 700px;
     padding: 10px;
 }
@@ -109,7 +109,10 @@
 .interior-title {
     font-family: 'vonder';
     font-size: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+.interior-title-2 {
+    margin-top: 15px;
 }
 .interior-div-1 {
     background-color: silver;
@@ -199,7 +202,33 @@
 .booking-link:hover{
     color: slategray;
 }
-
+@media screen and (max-width: 412px) {
+    .booking-link-wrapper {
+        padding-top: 120px;
+    }
+    .chapel-desc {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .booking-link-wrapper {
+        padding-top: 150px;
+    }
+    .booking-link {
+        font-size: 80px;
+    }
+    .link-wrapper {
+        padding-top: 70px;
+    }
+    .chapel-desc {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 370px) {
+    .booking-link-wrapper {
+        padding-top: 175px;
+    }
+}
 @media screen and (min-width: 900px) {
     .booking-link-wrapper {
         padding-top: 100px;
