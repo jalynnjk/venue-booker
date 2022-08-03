@@ -10,4 +10,4 @@ The frontend was built with HTML, CSS, React, React-Boostrap, React Router, Reac
 To install this application fork and then clone this repository into your local terminal. (Make sure to run npm i in order to download the required dependencies)
 
 ## Next steps...
-For my next steps I would like to add authorization where the owner must log-in in order to view and interact with the requests. I would also like to add the functionality where the application automatically sends an email to the user letting them know if their requuest has been accepted or declined.
+For my next steps I would like to add authorization where the owner must log-in in order to view and interact with the requests. I would also like to add the functionality where the application automatically sends an email to the user letting them know if their request has been accepted or declined.
