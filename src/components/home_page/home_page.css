@@ -64,7 +64,7 @@
 .chapel-interior-link:hover {
     color: silver;
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 550px) {
     .chapel-grounds-img {
         max-width: 60vw;
         margin-right: 10px;
@@ -155,7 +155,7 @@
     color: seashell;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 550px) {
     #chapel-interior {
         height: 100vh;
         flex-direction: row;
@@ -276,7 +276,7 @@
     color: seashell;
 }
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 550px){
     .contact-info {
         font-size: 20px;
         padding-top: 20px;
