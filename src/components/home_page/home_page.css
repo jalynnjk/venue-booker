@@ -36,17 +36,21 @@
     border-bottom: 2px seashell solid;
 }
 .chapel-grounds-img {
-    max-width: 65vw;
+    max-width: 90vw;
     border-radius: 2%;
 }
 .chapel-desc {
     font-family: 'merriweather';
     font-size: 25px;
     max-width: 700px;
+    padding: 10px;
 }
 .chapel-quote {
     font-family: 'vonder';
     font-size: 30px;
+}
+.arrow {
+    display: none;
 }
 .interior-link-div {
     font-size: 35px;
@@ -59,6 +63,15 @@
 }
 .chapel-interior-link:hover {
     color: silver;
+}
+@media screen and (min-width: 500px) {
+    .chapel-grounds-img {
+        max-width: 60vw;
+        margin-right: 10px;
+    }
+    .chapel-interior-link {
+        font-size: 50px;
+    }
 }
 
 @media screen and (min-width:900px) {
@@ -80,18 +93,20 @@
     .chapel-interior-link {
         font-size: 60px;
     }
+    .arrow {
+        display: block;
+    }
 }
 /* About Chapel Continued */
 #chapel-interior {
-    height: 100vh;
     background-color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     border: 5px solid seashell;
 }
 .interior-title {
     font-family: 'vonder';
-    font-size: 35px;
+    font-size: 40px;
     margin-bottom: 25px;
 }
 .interior-div-1 {
@@ -133,6 +148,18 @@
 }
 .booking-anchor:hover {
     color: seashell;
+}
+
+@media screen and (min-width: 500px) {
+    #chapel-interior {
+        height: 100vh;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .interior-title {
+        font-size: 35px;
+    }
+
 }
 /* Link to Booking Portal Section */
 #booking-link-section {
@@ -183,7 +210,7 @@
     gap: 5px;
     padding: 5px;
     flex-direction: column;
-    margin-top: 4%;
+    margin-top: 14%;
 }
 .owner-portal {
     text-decoration: none;

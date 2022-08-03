@@ -32,7 +32,7 @@ function HomePage(props) {
 							<AnchorLink
 								href='#chapel-interior'
 								className='chapel-interior-link'>
-								Step Inside -&gt;
+								Step Inside <span className='arrow'>-&gt;</span>
 							</AnchorLink>
 						</span>
 					</p>
