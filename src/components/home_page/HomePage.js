@@ -2,6 +2,9 @@ import './home_page.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'react-router-dom';
 import grounds from './assets/chapel-grounds.jpeg';
+import insta from './assets/gray_circle_instagram_icon.png'
+import facebook from './assets/gray_circle_facebook_icon.png';
+import twitter from './assets/gray_twitter_circle_icon.png'
 
 function HomePage(props) {
 	return (
@@ -101,8 +104,19 @@ function HomePage(props) {
 					</Link>
 				</div>
 			</section>
-			<footer>
-				<Link to='/owner-portal'>Log-In</Link>
+			<footer className='footer'>
+                <div className='contact-info'>
+                    <h4 className='chapel-contact'>Contact The Chapel</h4>
+                    <p className='chapel-email'>thechapel@gmail.com</p>
+                    <p className='chapel-phone'>310-377-1650</p>
+                    <p className='chapel-address'>5755 Palos Verdes Drive South, Rancho Palos Verdes, California, 90275</p>
+                </div>
+                <div className='socials'>
+                    <a href='www.instagram.com'><img src={insta} alt="instagram logo" /></a>
+                    <a href="www.facebook.com"><img src={facebook} alt="facebook logo" /></a>
+                    <a href="www.twitter.com"><img src={twitter} alt="twitter logo" /></a>
+                </div>
+				<Link to='/owner-portal' className='owner-portal'>Owner Portal</Link>
 			</footer>
 		</div>
 	);
