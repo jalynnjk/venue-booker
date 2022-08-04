@@ -3,6 +3,7 @@
     font-style: 'normal';
     src: url('./assets/Vonder.ttf');
 }
+
 /* Home Page landing Section */
 .hp-main {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/chapel.jpeg');
@@ -23,6 +24,16 @@
 .enter-link:hover {
     color: slategray;
 }
+
+@media screen and (min-width: 500px) and (max-width: 550px) {
+    .enter-link {
+        font-size: 140px;
+    }
+    .link-wrapper {
+        padding-top: 240px;
+    }
+}
+
 /* About Chapel Section */
 #about {
     height: 100vh;
@@ -64,13 +75,17 @@
 .chapel-interior-link:hover {
     color: silver;
 }
+
 @media screen and (min-width: 550px) {
     .chapel-grounds-img {
-        max-width: 60vw;
+        max-width: 58vw;
         margin-right: 10px;
     }
     .chapel-interior-link {
         font-size: 50px;
+    }
+    .chapel-desc {
+        font-size: 24px;
     }
 }
 
@@ -99,6 +114,7 @@
         display: inline;
     }
 }
+
 /* About Chapel Continued */
 #chapel-interior {
     background-color: white;
@@ -182,6 +198,7 @@
     }
 
 }
+
 /* Link to Booking Portal Section */
 #booking-link-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/chapel-at-night.jpeg');
@@ -202,6 +219,7 @@
 .booking-link:hover{
     color: slategray;
 }
+
 @media screen and (max-width: 412px) {
     .booking-link-wrapper {
         padding-top: 120px;
@@ -210,6 +228,7 @@
         font-size: 25px;
     }
 }
+
 @media screen and (max-width: 380px) {
     .booking-link-wrapper {
         padding-top: 150px;
@@ -224,11 +243,13 @@
         font-size: 20px;
     }
 }
+
 @media screen and (max-width: 370px) {
     .booking-link-wrapper {
         padding-top: 175px;
     }
 }
+
 @media screen and (min-width: 900px) {
     .booking-link-wrapper {
         padding-top: 100px;
@@ -237,6 +258,7 @@
         font-size: 160px;
     }
 }
+
 /* Footer Section */
 .footer {
     background-color: slategray;
